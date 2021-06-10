@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>circle 애니메이션</title>
+
+    <script src="./js/lib/jquery.min.js"></script>
+    <script src="./icon/fontawesome.js"></script>
+    <script src="./icon/css/font-awesome.css"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        * {padding:0;margin:0;vertical-align:middle;}
+        body {text-align:center;font:normal 16px/1 'arial'}
+        html,body {width:100%;height:100%;}
+        html {overflow-y:scroll;}
+
+        #section1 {width:100%;height:969px;overflow:hidden; /* js */ }
+        #section1 .wrap {position:relative;width:100%;height:100%;}
+        #section1 .wrap .main-video {z-index:1;position:relative;width:1920px;height:1080px; /* js */ }
+
+        /* 재생/정지 */
+        #section1 .wrap .control-box {z-index:2;position:absolute;top:50%;left:50%;margin-top:-40px;margin-left:-40px;width:80px;height:80px;transform:scale(1);transition:all .3s;}
+        #section1 .wrap .control-box:hover {transform:scale(1);}
+        #section1 .wrap .control-box a {display:block;width:100%;height:100%;background:rgba(0,0,0, .8) url(./img/icon-player-pause.png) no-repeat 55% 50%;background-size:25px auto;border-radius:50%;transform:scale(1);transition:all .3s;}
+        #section1 .wrap .control-box:hover a {background-color:#000;transform:scale(1.2);}
+        #section1 .wrap .control-box.addPlay a {background-image:url(./img/icon-player-play.png);}
+        /* 사운드 on/off */
+        #section1 .wrap .volume-box {z-index:2;position:absolute;bottom:50px;right:50px;width:50px;height:50px;text-align:center;}
+        #section1 .wrap .volume-box a {display:inline-block;width:100%;height:100%;background:rgba(0,0,0, .8);}
+        #section1 .wrap .volume-box a i {display:block;font-size:30px;color:#fff;line-height:50px;}
+
+        /* replay */
+        #section1 .wrap .replay-box {z-index:2;position:absolute;bottom:49px;right:110px;width:50px;height:50px;}
+        #section1 .wrap .replay-box a {display:inline-block;width:100%;height:100%;background:rgba(0,0,0, .8);}        
+        #section1 .wrap .replay-box a i {display:block;font-size:30px;color:#fff;line-height:50px;transform:rotate(0deg);transition:all .3s;}        
+        #section1 .wrap .replay-box a i:hover {transform:rotate(-180deg);}        
+
+        /* xspeed */
+        #section1 .wrap .xspeed-box {z-index:2;position:absolute;bottom:50px;right:170px;width:100px;height:50px;line-height:50px;}
+        #section1 .wrap .xspeed-box select {width:100%;height:50px;color:#fff;font-size:16px;background:#000;font-weight:500;padding:0 10px;}
+    
+    </style>
+
+
+</head>
+<body>
+
+    <section id="section1">
+        <div class="wrap">
+            <!-- 동영상 콘텐츠 -->
+            <!-- <video class="main-video" autoplay loop muted playsinline> 자동재생, 소리끄기, 사파리라는브라우저에서 웹사이트내에떠라 -->
+            <video class="main-video" playsinline> <!-- js컨트롤 -->
+                <source src="./video/main.mp4" type="video/mp4">
+            </video>
+
+            <span class="control-box">
+                <a href="#" class="play-btn"></a>
+            </span>
+
+            <div class="xspeed-box">
+                <form name="xspeed_form">
+                    <select name="xspeed" id="xspeed">                
+                        <option value="0.5">x0.5</option>
+                        <option value="0.75">x0.75</option>
+                        <option value="1" selected>x1</option>
+                        <option value="1.25">x1.25</option>
+                        <option value="1.5">x1.5</option>
+                        <option value="1.75">x1.75</option>
+                        <option value="2">x2</option>
+                    </select>
+                </form>
+            </div>
+            
+            <div class="replay-box">
+                <a href="#" class="replay-btn"><i class="material-icons">replay</i></a>
+            </div>
+
+            <div class="volume-box">
+                <a href="#" class="volume-btn"><i class="fas fa-volume-mute"></i></a>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section id="section2">
+        <div class="wrap">
+            <!-- 구글맵 API -->
+        </div>
+    </section>
+
+    <section id="section3">
+        <div class="wrap">
+            <!-- 삼각함수 COS SIN -->
+        </div>
+    </section>
+
+    <script src="./js/video.js"></script>
+
+</body>
+</html>
+
+
+
